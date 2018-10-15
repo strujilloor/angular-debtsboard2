@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {DebtService} from '../../../services/debt.service';
 // class Debt
 import {Debt} from '../../../models/debt';
-import {element} from 'protractor';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-debt-list',
@@ -14,7 +14,8 @@ export class DebtListComponent implements OnInit {
     debtList: Debt[];
 
     constructor(
-        private debtService: DebtService
+        private debtService: DebtService,
+        private toastr: ToastrService,
     ) {
     }
 
@@ -41,7 +42,10 @@ export class DebtListComponent implements OnInit {
     }
 
     onDelete($key: string) {
-        this.debtService.deleteDebt($key);
+        if (confirm('Are you sure you want to delete it?')) {
+            this.debtService.deleteDebt($key);
+            this.toastr.success('Successfull Operation', 'Debt Deleted');
+        }
     }
 
 }

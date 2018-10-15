@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 // components
 import { AppComponent } from './app.component';
 import { DebtsComponent } from './components/debts/debts.component';
@@ -27,7 +29,9 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFireDatabaseModule,
-      FormsModule
+      FormsModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot()
   ],
   providers: [DebtService],
   bootstrap: [AppComponent]

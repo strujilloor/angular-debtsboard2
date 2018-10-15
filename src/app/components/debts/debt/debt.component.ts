@@ -5,6 +5,7 @@ import {Debt} from '../../../models/debt';
 // service
 import {DebtService} from '../../../services/debt.service';
 
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-debt',
@@ -13,8 +14,10 @@ import {DebtService} from '../../../services/debt.service';
 })
 export class DebtComponent implements OnInit {
 
-    constructor(public debtService: DebtService) {
-    }
+    constructor(
+        public debtService: DebtService,
+        private toastr: ToastrService
+    ) {}
 
     ngOnInit() {
         // me traerá las deudas dentro del servicio
@@ -33,6 +36,7 @@ export class DebtComponent implements OnInit {
         console.log('debtForm value:', debtForm.value);
 
         this.resetForm(debtForm);
+        this.toastr.success('Succesfull Operation', 'Succesfull Operation');
     }
 
     // resertForm() recibe el formulario, el ? es para decir que es opcional
