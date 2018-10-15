@@ -8,12 +8,12 @@ import {Debt} from '../models/debt';
 export class DebtService {
 
     debtList: AngularFireList<any>;
-    selectDebt: Debt = new Debt();
+    selectedDebt: Debt = new Debt();
 
     constructor(private firebase: AngularFireDatabase) {
     }
 
-    getDebt() {
+    getDebts() {
         return this.debtList = this.firebase.list('debts');
     }
 

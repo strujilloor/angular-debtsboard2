@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 // services
 import {DebtService} from './services/debt.service';
 
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {DebtService} from './services/debt.service';
   imports: [
     BrowserModule,
       AngularFireModule.initializeApp(environment.firebase),
-      AngularFireDatabaseModule
+      AngularFireDatabaseModule,
+      FormsModule
   ],
   providers: [DebtService],
   bootstrap: [AppComponent]

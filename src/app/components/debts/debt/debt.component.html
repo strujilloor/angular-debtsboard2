@@ -1,3 +1,65 @@
-<p>
-  debt works!
-</p>
+<div class="card mt-5">
+    <div class="card-body">
+        <!-- debtForm es el nombre de variable asignado al formulario por el: #debtForm="ngForm" -->
+        <form #debtForm="ngForm" (ngSubmit)="onSubmit(debtForm)">
+
+            <div class="form-group">
+                <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        #name="ngModel"
+                        [(ngModel)]="debtService.selectedDebt.name"
+                        placeholder="Add Debt Name"
+                >
+            </div>
+
+            <div class="form-group">
+                <input
+                        type="number"
+                        class="form-control"
+                        name="amount"
+                        #amount="ngModel"
+                        [(ngModel)]="debtService.selectedDebt.amount"
+                        placeholder="Add Debt Amount"
+                >
+            </div>
+
+            <div class="form-group">
+                <input
+                        type="text"
+                        class="form-control"
+                        name="kind"
+                        #kind="ngModel"
+                        [(ngModel)]="debtService.selectedDebt.kind"
+                        placeholder="Add Debt Kind"
+                >
+            </div>
+
+            <div class="form-group">
+                <input
+                        type="text"
+                        class="form-control"
+                        name="details"
+                        #details="ngModel"
+                        [(ngModel)]="debtService.selectedDebt.details"
+                        placeholder="Add Debt Details"
+                >
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success mr-1" type="submit">
+                    <!--iconos con font awesome-->
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Add Debt
+                </button>
+                <!-- reset va a limpiar el formulario-->
+                <button class="btn btn-light" type="reset" (click)="resetForm(debtForm)">
+                    <i class="fas fa-broom"></i>
+                    Clear
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
