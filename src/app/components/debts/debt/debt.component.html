@@ -3,6 +3,8 @@
         <!-- debtForm es el nombre de variable asignado al formulario por el: #debtForm="ngForm" -->
         <form #debtForm="ngForm" (ngSubmit)="onSubmit(debtForm)">
 
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="debtService.selectedDebt.$key">
+
             <div class="form-group">
                 <input
                         type="text"

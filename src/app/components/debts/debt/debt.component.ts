@@ -23,9 +23,15 @@ export class DebtComponent implements OnInit {
     }
 
     onSubmit(debtForm: NgForm) {
+        if (debtForm.value.$key == null) {
+            this.debtService.insertDebt(debtForm.value);
+        } else {
+            this.debtService.updateDebt(debtForm.value);
+        }
+
         console.log('Selected Debt:', this.debtService.selectedDebt);
         console.log('debtForm value:', debtForm.value);
-        this.debtService.insertDebt(debtForm.value);
+
         this.resetForm(debtForm);
     }
 
