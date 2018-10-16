@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { DebtsComponent } from './components/debts/debts.component';
 import { DebtListComponent } from './components/debts/debt-list/debt-list.component';
 import { DebtComponent } from './components/debts/debt/debt.component';
+import { PeopleComponent } from './components/people/people.component';
+import { PersonComponent } from './components/people/person/person.component';
+import { PersonListComponent } from './components/people/person-list/person-list.component';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -15,16 +18,18 @@ import { environment } from '../environments/environment';
 
 // services
 import {DebtService} from './services/debt.service';
+import {PersonService} from './services/person.service';
 
 import {FormsModule} from '@angular/forms';
 
 // router
 import { RouterModule, Routes } from '@angular/router';
 
+
 const appRoutes: Routes = [
     {path: '', redirectTo: '/debts', pathMatch: 'full'},
     {path: 'debts', component: DebtsComponent},
-    // {path: 'people', component: PeopleComponent},
+    {path: 'people', component: PeopleComponent},
 ]
 
 @NgModule({
@@ -32,7 +37,10 @@ const appRoutes: Routes = [
     AppComponent,
     DebtsComponent,
     DebtListComponent,
-    DebtComponent
+    DebtComponent,
+    PeopleComponent,
+    PersonComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,7 @@ const appRoutes: Routes = [
           { enableTracing: true } // <-- debugging purposes only
       )
   ],
-  providers: [DebtService],
+  providers: [DebtService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body px-0 table-responsive">
+    <h5 class="text-center"><b>List of People</b></h5>
+    <table class="table table-sm table-hover">
+      <thead class="thead-light">
+      <th>Name</th>
+      <th>Options</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of personList">
+        <td>{{person.name}}</td>
+        <td>
+          <button class="btn btn-info text-white btn-sm mr-1" (click)="onEdit(person)">
+            Edit <i class="fas fa-user-edit"></i>
+          </button>
+          <button class="btn btn-warning text-white btn-sm my-1" (click)="onDelete(person.$key)">
+            Delete <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
