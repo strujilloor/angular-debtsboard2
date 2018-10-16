@@ -1,4 +1,7 @@
 <div class="card mt-5">
+    <h5 class="card-header">
+        <b>Debt</b>
+    </h5>
     <div class="card-body">
         <!-- debtForm es el nombre de variable asignado al formulario por el: #debtForm="ngForm" -->
         <form #debtForm="ngForm" (ngSubmit)="onSubmit(debtForm)">
@@ -39,21 +42,15 @@
             </div>
 
             <div class="form-group">
-                <input
-                        type="text"
-                        class="form-control"
-                        name="details"
-                        #details="ngModel"
-                        [(ngModel)]="debtService.selectedDebt.details"
-                        placeholder="Add Debt Details"
-                >
+                <textarea name="details" id="" cols="30" rows="5" class="form-control" #details="ngModel" [(ngModel)]="debtService.selectedDebt.details" placeholder="Add Debt Details"></textarea>
+
             </div>
 
             <div class="form-group">
                 <button class="btn btn-success mr-1" type="submit">
                     <!--iconos con font awesome-->
                     <i class="fas fa-file-invoice-dollar"></i>
-                    Add Debt
+                    Debt
                 </button>
                 <!-- reset va a limpiar el formulario-->
                 <button class="btn btn-light" type="reset" (click)="resetForm(debtForm)">

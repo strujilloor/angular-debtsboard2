@@ -44,7 +44,7 @@ export class DebtListComponent implements OnInit {
     onDelete($key: string) {
         if (confirm('Are you sure you want to delete it?')) {
             this.debtService.deleteDebt($key);
-            this.toastr.success('Successfull Operation', 'Debt Deleted');
+            this.toastr.warning('Successfull Operation', 'Debt Deleted');
         }
     }
 

@@ -1,22 +1,28 @@
 <div class="card">
-  <div class="card-body">
-    <h6 class="text-center">List of Debts</h6>
-    <table class="table table-sm table-hover">
-      <tbody>
-        <tr *ngFor="let debt of debtList">
-          <td>{{debt.name}}</td>
-          <td>${{debt.amount}}</td>
-          <td>{{debt.kind[0]}}</td>
-          <td>
-            <button class="btn btn-info text-white btn-sm mr-1" (click)="onEdit(debt)">
-              Edit <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-warning text-white btn-sm my-1" (click)="onDelete(debt.$key)">
-              Delete <i class="fas fa-trash"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="card-body px-0 table-responsive">
+        <h5 class="text-center"><b>List of Debts</b></h5>
+        <table class="table table-sm table-hover">
+            <thead class="thead-light">
+            <th>Name</th>
+            <th>Amount</th>
+            <th>k</th>
+            <th>Options</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let debt of debtList">
+                <td>{{debt.name}}</td>
+                <td>${{debt.amount}}</td>
+                <td>{{debt.kind[0]}}</td>
+                <td>
+                    <button class="btn btn-info text-white btn-sm mr-1" (click)="onEdit(debt)">
+                        Edit <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="btn btn-warning text-white btn-sm my-1" (click)="onDelete(debt.$key)">
+                        Delete <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
