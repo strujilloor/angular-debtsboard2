@@ -18,6 +18,15 @@ import {DebtService} from './services/debt.service';
 
 import {FormsModule} from '@angular/forms';
 
+// router
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+    {path: '', redirectTo: '/debts', pathMatch: 'full'},
+    {path: 'debts', component: DebtsComponent},
+    // {path: 'people', component: PeopleComponent},
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +40,11 @@ import {FormsModule} from '@angular/forms';
       AngularFireDatabaseModule,
       FormsModule,
       BrowserAnimationsModule,
-      ToastrModule.forRoot()
+      ToastrModule.forRoot(),
+      RouterModule.forRoot(
+          appRoutes,
+          { enableTracing: true } // <-- debugging purposes only
+      )
   ],
   providers: [DebtService],
   bootstrap: [AppComponent]

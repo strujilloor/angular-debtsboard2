@@ -1,10 +1,22 @@
-<nav class="navbar navbar-dark bg-info">
+<nav class="navbar navbar-expand-sm navbar-dark bg-info">
   <a href="/" class="navbar-brand">
     <i class="fas fa-handshake"></i> DebtsBoard
   </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/debts" routerLinkActive="active">Debts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/person" routerLinkActive="active">Person</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
-<app-debts></app-debts>
-
+<router-outlet></router-outlet>
 
 
