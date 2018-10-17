@@ -18,12 +18,13 @@ export class DebtService {
     }
 
     insertDebt(debt: Debt) {
-        this.debtList.push({
+        const id = this.debtList.push({
             name: debt.name,
             amount: debt.amount,
             kind: debt.kind,
             details: debt.details
-        });
+        }).key;
+        console.log('id: ', id);
     }
 
     updateDebt(debt: Debt) {

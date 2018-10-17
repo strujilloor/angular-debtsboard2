@@ -4,8 +4,10 @@ import {NgForm} from '@angular/forms';
 import {Debt} from '../../../models/debt';
 // service
 import {DebtService} from '../../../services/debt.service';
+import {PersonService} from '../../../services/person.service';
 
 import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
     selector: 'app-debt',
@@ -16,34 +18,38 @@ export class DebtComponent implements OnInit {
 
     constructor(
         public debtService: DebtService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        public personService: PersonService
     ) {}
 
     ngOnInit() {
         // me traerá las deudas dentro del servicio
         this.debtService.getDebts();
+        // this.personService.getPeople();
         this.resetForm();
     }
 
     onSubmit(debtForm: NgForm) {
         if (debtForm.value.$key == null) {
             this.debtService.insertDebt(debtForm.value);
+            this.toastr.success('Debt inserted', 'Succesfull Operation');
         } else {
             this.debtService.updateDebt(debtForm.value);
+            this.toastr.success('Debt Updated', 'Succesfull Operation');
         }
 
         console.log('Selected Debt:', this.debtService.selectedDebt);
         console.log('debtForm value:', debtForm.value);
 
         this.resetForm(debtForm);
-        this.toastr.success('Succesfull Operation', 'Succesfull Operation');
     }
 
     // resertForm() recibe el formulario, el ? es para decir que es opcional
     resetForm(debtForm?: NgForm) {
         if (debtForm != null) {
-            debtForm.reset();
+            console.log('el form no es null');
             this.debtService.selectedDebt = new Debt();
+            debtForm.reset();
         }
     }
 

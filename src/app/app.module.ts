@@ -49,10 +49,7 @@ const appRoutes: Routes = [
       FormsModule,
       BrowserAnimationsModule,
       ToastrModule.forRoot(),
-      RouterModule.forRoot(
-          appRoutes,
-          { enableTracing: true } // <-- debugging purposes only
-      )
+      RouterModule.forRoot(appRoutes)
   ],
   providers: [DebtService, PersonService],
   bootstrap: [AppComponent]
