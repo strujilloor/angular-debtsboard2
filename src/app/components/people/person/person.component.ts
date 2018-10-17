@@ -33,9 +33,7 @@ export class PersonComponent implements OnInit {
         } else {
             this.personService.updatePerson(personForm.value);
         }
-
-        console.log('Selected Person:', this.personService.selectedPerson);
-        console.log('debtForm value:', personForm.value);
+        console.log('person: ', personForm);
 
         this.resetForm(personForm);
         this.toastr.success('Succesfull Operation', 'Succesfull Operation');

@@ -18,14 +18,26 @@ export class PersonService {
     }
 
     insertPerson(person: Person) {
-        this.personList.push({
-            name: person.name
+        // this.personList.push({
+        //     name: person.name,
+        //     telephone: person.telephone
+        // });
+        this.personList.update(`${person.name}`, {
+            name: person.name,
+            telephone: person.telephone
+        });
+    }
+
+    insertPersonFromDebt(personName: string) {
+        this.personList.update(`${personName}`, {
+            name: personName
         });
     }
 
     updatePerson(person: Person) {
         this.personList.update(person.$key, {
-            name: person.name
+            name: person.name,
+            telephone: person.telephone
         });
     }
 

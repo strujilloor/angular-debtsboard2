@@ -31,7 +31,7 @@ export class PersonListComponent implements OnInit {
                 item.forEach(element => {
                     let x = element.payload.toJSON();
                     x['$key'] = element.key;
-                    this.personList.push(x as Debt);
+                    this.personList.push(x as Person);
                 });
             });
     }

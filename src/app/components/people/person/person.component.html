@@ -15,7 +15,18 @@
                 name="name"
                 #name="ngModel"
                 [(ngModel)]="personService.selectedPerson.name"
-                placeholder="Add Person Name"
+                placeholder="Person Name"
+        >
+      </div>
+
+      <div class="form-group">
+        <input
+                type="text"
+                class="form-control"
+                name="telephone"
+                #telephone="ngModel"
+                [(ngModel)]="personService.selectedPerson.telephone"
+                placeholder="Add telephone number"
         >
       </div>
 

@@ -19,7 +19,7 @@ export class DebtComponent implements OnInit {
     constructor(
         public debtService: DebtService,
         private toastr: ToastrService,
-        public personService: PersonService
+        public personService: PersonService,
     ) {}
 
     ngOnInit() {
@@ -33,6 +33,7 @@ export class DebtComponent implements OnInit {
         if (debtForm.value.$key == null) {
             this.debtService.insertDebt(debtForm.value);
             this.toastr.success('Debt inserted', 'Succesfull Operation');
+            this.personService.insertPersonFromDebt(debtForm.value.name);
         } else {
             this.debtService.updateDebt(debtForm.value);
             this.toastr.success('Debt Updated', 'Succesfull Operation');
