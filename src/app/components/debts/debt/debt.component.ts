@@ -17,14 +17,15 @@ import {ToastrService} from 'ngx-toastr';
 export class DebtComponent implements OnInit {
 
     constructor(
+        public personService: PersonService,
         public debtService: DebtService,
-        private toastr: ToastrService,
-        public personService: PersonService
+        private toastr: ToastrService
     ) {}
 
     ngOnInit() {
         // me traerá las deudas dentro del servicio
         this.debtService.getDebts();
+        this.personService.getPeople();
         // this.personService.getPeople();
         this.resetForm();
     }
