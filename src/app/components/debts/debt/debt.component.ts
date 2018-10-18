@@ -19,7 +19,7 @@ export class DebtComponent implements OnInit {
     constructor(
         public debtService: DebtService,
         private toastr: ToastrService,
-        public personService: PersonService,
+        public personService: PersonService
     ) {}
 
     ngOnInit() {
